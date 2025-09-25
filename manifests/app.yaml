@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kustomize-example
+spec:
+  project: default
+  source:
+    path: manifests/kustomize
+    repoURL: 'https://github.com/kubernetes-sigs/kustomize'
+    targetRevision: HEAD
+  destination:
+    namespace: kustomize-proj
+    server: 'https://kubernetes.default.svc'
+
